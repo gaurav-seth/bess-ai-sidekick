@@ -1,0 +1,460 @@
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* —— Header —— */
+.dashboard-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.header-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+}
+
+.header-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rack-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rack-selector-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.rack-select {
+  min-width: 9rem;
+  padding: 0.45rem 0.65rem;
+  color: var(--text-heading);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.rack-select:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+.connection-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.connection-status--online {
+  color: var(--text-heading);
+}
+
+.connection-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.connection-status--online .connection-dot {
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+.connection-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* —— Layout —— */
+.dashboard-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 360px);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.dashboard-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+/* —— Metrics —— */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.metric-card {
+  padding: 1rem 1.1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--border);
+}
+
+.metric-card--amber {
+  border-top-color: var(--accent-amber);
+}
+.metric-card--cyan {
+  border-top-color: var(--accent-cyan);
+}
+.metric-card--blue {
+  border-top-color: var(--accent-blue);
+}
+.metric-card--green {
+  border-top-color: var(--accent-green);
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.metric-number {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+.metric-unit {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.metric-hint {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* —— Panels —— */
+.chart-panel,
+.chat-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.chart-panel {
+  padding: 1.25rem;
+}
+
+.chart-panel-header {
+  margin-bottom: 1rem;
+}
+
+.panel-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.panel-subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.chart-figure {
+  margin: 0;
+}
+
+.telemetry-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-grid-line {
+  stroke: #243552;
+  stroke-width: 1;
+}
+
+.chart-axis-x,
+.chart-axis-y {
+  fill: var(--text-muted);
+  font-size: 10px;
+  font-family: var(--font-sans);
+}
+
+.chart-axis-label {
+  fill: var(--text-muted);
+  font-size: 10px;
+  font-family: var(--font-sans);
+}
+
+.chart-legend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  color: var(--text);
+  flex: 1;
+}
+
+.legend-value {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-heading);
+}
+
+/* —— Chat —— */
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  max-height: calc(100vh - 8rem);
+  padding: 1.25rem;
+}
+
+.chat-panel-header {
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0.25rem 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.chat-message {
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.chat-message--user {
+  background: var(--bg-elevated);
+  margin-left: 0.5rem;
+}
+
+.chat-message--assistant {
+  background: rgba(34, 211, 238, 0.06);
+  border-color: rgba(34, 211, 238, 0.2);
+  margin-right: 0.5rem;
+}
+
+.chat-message-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.chat-message--assistant .chat-message-role {
+  color: var(--accent-cyan);
+}
+
+.chat-message-body {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-heading);
+}
+
+.chat-composer {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+.chat-composer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.chat-composer-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  max-width: 16rem;
+}
+
+.btn-send {
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--bg-deep);
+  background: var(--accent-cyan);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.btn-send:not(:disabled) {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.btn-send:not(:disabled):hover {
+  filter: brightness(1.08);
+}
+
+/* —— Footer —— */
+.dashboard-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* —— Responsive —— */
+@media (max-width: 1100px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-main {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-panel {
+    max-height: none;
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard {
+    padding: 0.75rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .connection-status {
+    justify-content: flex-start;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-number {
+    font-size: 1.5rem;
+  }
+}
